@@ -1,9 +1,13 @@
-import MyComponent from '../components/QuillEditor'
+import dynamic from "next/dynamic";
+
+const MyComponent = dynamic(import("../components/QuillEditor/index"), { ssr: false });
 
 export default function Home() {
   return (
     <>
-      { typeof window === 'object' ? <MyComponent /> : null}
+      <main>
+        <MyComponent />
+      </main>
       hogehoge
     </>
   )
